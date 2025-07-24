@@ -44,7 +44,8 @@ Get this project up and running on your local machine in just a few steps:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone
+    git clone [https://github.com/GodaimeSan22/MyWorkView.git](https://github.com/GodaimeSan22/MyWorkView.git)
+    cd MyWorkView
     ```
 
 2.  **Install Dependencies:**
@@ -94,3 +95,82 @@ After these steps, you can add your development app to any Monday.com board or d
 ## 📂 Project Structure
 
 The project adheres to a clean and intuitive React application structure, making it easy to navigate and understand:
+
+.
+├── public/                 # 🌐 Static assets: favicon, logos, manifest, robots.txt.
+├── src/                    # 🚀 Core application source code.
+│   ├── api/                # 📡 Monday.com API interactions:
+│   │   └── mondayQueries.jsx   # Defines all GraphQL queries (GET_BOARDS, GET_COLUMNS, GET_ITEMS, GET_USER_DETAILS) and mutations (UPDATE_ITEM_NAME, UPDATE_COLUMN_VALUE).
+│   ├── components/         # 🧩 Reusable React UI components:
+│   │   ├── Sidebar/        # Component for dynamic board and column selection, and "My Tasks" filter.
+│   │   └── TaskTable/      # Main data table component with inline editing and advanced rendering.
+│   │       ├── TaskTable.css # Dedicated styling for the TaskTable.
+│   │       └── TaskTable.jsx # Logic and rendering for the TaskTable component.
+│   │   ├── ErrorMessage.jsx    # (Placeholder) Component for displaying user-friendly error messages.
+│   │   └── LoadingSpinner.jsx  # (Placeholder) Component for indicating data loading states.
+│   ├── hooks/              # 🎣 Custom React Hooks for Monday.com specific logic:
+│   │   └── useMondayAPI.jsx    # Custom hook for all Monday.com API calls, including built-in retry logic.
+│   ├── App.css             # 💅 Global CSS styles for the application, leveraging Monday.com design variables.
+│   ├── App.jsx             # 🖥️ The main application component, orchestrating state management, data fetching, and overall layout.
+│   ├── index.css           # 🎨 Entry point CSS for global styles.
+│   ├── index.jsx           # ⚡ React application's entry point, rendering the App component.
+│   ├── init.js             # 📦 Initializes the Monday.com SDK instance globally for app-wide use.
+│   └── serviceWorker.js    # ⚙️ Registers a service worker for Progressive Web App (PWA) features (offline support, caching).
+├── .env                    # 🔒 Environment variables (ignored by Git for security).
+├── .gitignore              # 🚫 Specifies intentionally untracked files and directories (like node_modules, build artifacts).
+├── index.html              # 📄 The main HTML file that serves your React application.
+├── package.json            # 📋 Project metadata, npm scripts, and a list of all project dependencies.
+├── package-lock.json       # 🔒 Records the exact versions of all dependencies for consistent builds.
+├── README.md               # 📖 This comprehensive documentation file!
+└── vite.config.js          # ⚙️ Vite build tool configuration file.
+
+
+## 🌐 Monday.com API Interaction
+
+The application communicates efficiently with the Monday.com platform using the `monday-sdk-js` library and GraphQL.
+
+* **SDK Initialization (`init.js`)**: A single, global `mondaySdk` instance is set up to provide consistent access to the Monday.com platform features throughout the app.
+* **Smart API Hook (`useMondayAPI.jsx`)**: All GraphQL interactions are channeled through the `useMondayAPI` custom hook. This hook is a powerhouse, providing:
+    * **Centralized Query Execution**: A clean interface for executing any GraphQL query or mutation.
+    * **Robust Error Handling**: Catches and processes API errors gracefully.
+    * **Intelligent Retry Logic**: Implements an exponential backoff strategy with a `retry` function to automatically re-attempt API calls that fail due to rate limits or concurrency issues, ensuring maximum reliability.
+* **Comprehensive GraphQL Operations (`mondayQueries.jsx`)**: This file serves as the central hub for all Monday.com GraphQL operations:
+    * **`GET_BOARDS_QUERY`**: Fetches a list of all accessible boards.
+    * **`GET_BOARD_COLUMNS_QUERY`**: Retrieves detailed column definitions for selected boards, including `settings_str` crucial for parsing complex column types like Status.
+    * **`GET_BOARD_ITEMS_WITH_COLUMNS_QUERY`**: Efficiently fetches items (rows) and their specific column values for selected boards.
+    * **`GET_USER_DETAILS_QUERY`**: Used to retrieve user information (e.g., name, photo) for features like the "My Tasks" filter.
+    * **`UPDATE_ITEM_NAME_QUERY`**: GraphQL mutation for modifying an item's name directly from the table.
+    * **`UPDATE_COLUMN_VALUE_QUERY`**: GraphQL mutation for updating values of various column types, enabling inline editing.
+* **Persistent Storage**: The `monday.storage.instance` API is directly utilized in `App.jsx` to effortlessly persist user preferences (selected boards, columns, sidebar visibility) across sessions, remembering your exact setup.
+
+## 🚀 How to Use
+
+Once your app is configured and added to your Monday.com workspace, unleash its power with these simple steps:
+
+1.  **Access the App**: Navigate to the Monday.com board or dashboard where you've added the Enhanced Board Data Viewer.
+2.  **Toggle Sidebar**: If the sidebar isn't visible, use the toggle button in the main app view to open it.
+3.  **Select Your Boards**: In the sidebar, select one or more Monday.com boards from which you want to aggregate data. Use "Select All Boards" or "Deselect All Boards" for convenience.
+4.  **Choose Your Fields (Columns)**: After selecting boards, a list of available columns from those boards will appear. Select the specific fields you want to see in your unified table.
+5.  **View Your Unified Data**: The main app area will automatically populate with items from your chosen boards, displaying only the columns you've selected.
+6.  **Filter "My Tasks"**: Click the "My Tasks" button at the top of the table to quickly filter items assigned to your Monday.com user.
+7.  **Inline Edit**: Simply click on an item's name or any editable column cell (e.g., Text, Numbers, Status) within the table. Make your changes and press Enter (or click away) to save!
+8.  **Enjoy Persistence**: All your board and column selections, along with the sidebar's visibility, are automatically saved and will be loaded for you the next time you use the app.
+
+## 🤝 Contributing
+
+We welcome contributions! If you have ideas for improvements, new features, or bug fixes, please don't hesitate to contribute.
+
+1.  **Fork the repository** on GitHub: `https://github.com/GodaimeSan22/MyWorkView.git`
+2.  **Create a new branch** for your feature or bug fix: `git checkout -b feature/your-feature-name`
+3.  **Make your changes**, ensuring all code adheres to the existing style and best practices.
+4.  **Commit your changes** with a clear and concise message: `git commit -m 'feat: Briefly describe your new feature'`
+5.  **Push your branch** to your forked repository: `git push origin feature/your-feature-name`
+6.  **Open a Pull Request** against the `main` branch of this repository.
+
+Your contributions help make this app even better!
+
+## 📜 License
+
+This project is open-source and licensed under the **MIT License**. This means you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, provided you include the original copyright notice and this permission notice.
+
+---
