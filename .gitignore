@@ -1,0 +1,41 @@
+# Node.js dependencies and build artifacts
+node_modules/
+dist/
+build/
+.cache/
+.pnp/
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS and IDE specific files
+.DS_Store # macOS
+Thumbs.db # Windows
+.vscode/ # VS Code settings, but usually safe to commit .vscode/settings.json or .vscode/extensions.json if shared
+*.iml # IntelliJ IDEA files
+
+# Optional: If you have specific editor/IDE temporary files
+*.sublime-project
+*.sublime-workspace
+.idea/ # IntelliJ IDEA project directory
+
+# Monday.com App specific files (if any are generated locally and should not be versioned)
+# If the "code.tar.gz" file you mentioned earlier is a temporary build artifact, include it here.
+code.tar.gz
+
+# Test coverage reports
+coverage/
+
+# E.g., if you have any sensitive configuration outside .env
+# config.js # (only if it holds secrets and is not version-controlled)
