@@ -1,6 +1,0 @@
-import * as React from 'react';
-export interface WarningProps extends React.SVGAttributes<SVGElement> {
-    size?: string | number;
-}
-declare const Warning: React.FC<WarningProps>;
-export default Warning;

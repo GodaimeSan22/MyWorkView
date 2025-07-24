@@ -1,2 +1,0 @@
-export declare const AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY = 200;
-export declare const AVATAR_GROUP_COUNTER_AVATAR_SIZE = 22;

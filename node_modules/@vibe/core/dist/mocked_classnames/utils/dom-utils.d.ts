@@ -1,3 +1,0 @@
-/// <reference types="lodash" />
-export declare function isInsideClass(domElement: HTMLElement, classOrClassesName: Array<string> | string): boolean;
-export declare const getScrollableParent: ((node: HTMLElement) => HTMLElement) & import("lodash").MemoizedFunction;

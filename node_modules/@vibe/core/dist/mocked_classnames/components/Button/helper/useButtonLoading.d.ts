@@ -1,5 +1,0 @@
-export declare function useButtonLoading({ isLoading }: {
-    isLoading: boolean;
-}): {
-    loading: boolean;
-};
