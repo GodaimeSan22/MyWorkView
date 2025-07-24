@@ -1,0 +1,50 @@
+{
+  "name": "monday-react-quickstart-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm run stop && concurrently \"npm run server\" \"npm run expose\"",
+    "build": "vite build",
+    "expose": "mapps tunnel:create -p 8080",
+    "server": "vite --port 8080",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "stop": "npx kill-port 8301 && npx kill-port 4049 && npx kill-port 4040"
+  },
+  "dependencies": {
+    "@mondaycom/apps-sdk": "^2.2.0",
+    "@vibe/core": "^3.54.1",
+    "d3": "^7.9.0",
+    "monday-sdk-js": "^0.5.6"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@mondaycom/apps-cli": "^4.0.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^5.2.0",
+    "cross-port-killer": "^1.2.1",
+    "eslint-config-react-app": "^7.0.1",
+    "postcss": "^8.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.8",
+    "tailwindcss": "^4.1.11",
+    "vite": "^6.2.2"
+  },
+  "type": "module"
+}
