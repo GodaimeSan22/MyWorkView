@@ -95,35 +95,7 @@ After these steps, you can add your development app to any Monday.com board or d
 ## 📂 Project Structure
 
 The project adheres to a clean and intuitive React application structure, making it easy to navigate and understand:
-
-.
-├── public/                 # 🌐 Static assets: favicon, logos, manifest, robots.txt.
-├── src/                    # 🚀 Core application source code.
-│   ├── api/                # 📡 Monday.com API interactions:
-│   │   └── mondayQueries.jsx   # Defines all GraphQL queries (GET_BOARDS, GET_COLUMNS, GET_ITEMS, GET_USER_DETAILS) and mutations (UPDATE_ITEM_NAME, UPDATE_COLUMN_VALUE).
-│   ├── components/         # 🧩 Reusable React UI components:
-│   │   ├── Sidebar/        # Component for dynamic board and column selection, and "My Tasks" filter.
-│   │   └── TaskTable/      # Main data table component with inline editing and advanced rendering.
-│   │       ├── TaskTable.css # Dedicated styling for the TaskTable.
-│   │       └── TaskTable.jsx # Logic and rendering for the TaskTable component.
-│   │   ├── ErrorMessage.jsx    # (Placeholder) Component for displaying user-friendly error messages.
-│   │   └── LoadingSpinner.jsx  # (Placeholder) Component for indicating data loading states.
-│   ├── hooks/              # 🎣 Custom React Hooks for Monday.com specific logic:
-│   │   └── useMondayAPI.jsx    # Custom hook for all Monday.com API calls, including built-in retry logic.
-│   ├── App.css             # 💅 Global CSS styles for the application, leveraging Monday.com design variables.
-│   ├── App.jsx             # 🖥️ The main application component, orchestrating state management, data fetching, and overall layout.
-│   ├── index.css           # 🎨 Entry point CSS for global styles.
-│   ├── index.jsx           # ⚡ React application's entry point, rendering the App component.
-│   ├── init.js             # 📦 Initializes the Monday.com SDK instance globally for app-wide use.
-│   └── serviceWorker.js    # ⚙️ Registers a service worker for Progressive Web App (PWA) features (offline support, caching).
-├── .env                    # 🔒 Environment variables (ignored by Git for security).
-├── .gitignore              # 🚫 Specifies intentionally untracked files and directories (like node_modules, build artifacts).
-├── index.html              # 📄 The main HTML file that serves your React application.
-├── package.json            # 📋 Project metadata, npm scripts, and a list of all project dependencies.
-├── package-lock.json       # 🔒 Records the exact versions of all dependencies for consistent builds.
-├── README.md               # 📖 This comprehensive documentation file!
-└── vite.config.js          # ⚙️ Vite build tool configuration file.
-
+<img width="871" height="921" alt="image" src="https://github.com/user-attachments/assets/b89224f5-6ad8-42e0-a121-c3cb0bb8f72b" />
 
 ## 🌐 Monday.com API Interaction
 
